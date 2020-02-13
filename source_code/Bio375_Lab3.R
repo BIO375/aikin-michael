@@ -168,3 +168,7 @@ ggplot(ward) +
 
 compensation<-mutate(compensation, log(Root))
 
+### Tidy Data Entry ###
+
+comp_short <- read_csv("datasets/demos/compensation_short.csv")
+summary(comp_short)
