@@ -95,5 +95,10 @@ ggplot(sanchez)+
   geom_boxplot(aes(x = "N", y = beetledensity), notch = FALSE, varwidth = TRUE)+
   coord_cartesian(ylim = c(0,4))
 
-  
+### Advice ####
+# Switch the order of lines 9 and 10.  You need to load the package using
+# library() before you can update it.
+
+### GRADE: 10/10 code runs without breaking ####
+
 
