@@ -26,15 +26,29 @@ t.test(paris$obliquity,
 #One-sample t-test, t=2679.1, df=4, p=1.165e-13, 95%CI = 23.47-23.52, mean x = 23.49
 
 ####Question 2####
-heart <- read_csv("datasets/demos/HeartAttack_short.csv", 
-                  col_types = cols(group = col_character()))
+heart <- read_csv("datasets/demos/HeartAttack_short.csv", col_types = cols(group = col_character()))
 
-summary_heart <- heart %>%
+ggplot(heart) +
+  geom_boxplot(aes(x = group, y = cholest)) +
+  stat_summary(aes(x = group, y = cholest), 
+               fun=mean, 
+               colour="blue", 
+               fill = "blue",
+               geom="point", 
+               shape=21, 
+               size=3)
+
+ggplot(heart)+
+  geom_qq(aes(sample = cholest, color = group))
+
+summ_heart <- heart %>%
   group_by(group) %>%
   summarise(meanc = mean(cholest),
             sdc = sd(cholest),
             nc = n(),
             sec = sd(cholest)/sqrt(n()))
+
+ratio <-(max(summ_heart$sdc))/(min(summ_heart$sdc))
 
 #Two-sample Two-tailed
 t.test(cholest ~ group, data = heart, var.equal = TRUE, alternative = "two.sided", conf.level = 0.95)
