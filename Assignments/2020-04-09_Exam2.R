@@ -114,3 +114,6 @@ ratio <-(max(summ_algae$sd_growthrate))/(min(summ_algae$sd_growthrate))
 t.test(growthrate ~ treatment, data = algae, var.equal = TRUE, alternative = "two.sided", conf.level = 0.95)
 #There was no difference in growth rate between algae in high and normal CO2 concentration.
 #(two-sample, two-sided t-test; t = -0.53606, df = 12, p > 0.05)
+
+
+### Code runs without breaking 10/10 ####
