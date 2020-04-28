@@ -81,6 +81,9 @@ kruskal.test(logSporozoiteNumbers~treatmentGroup, data = malaria)
 ####Problem 15-30####
 crabs <- read_csv("datasets/abd/chapter15/chap15q30FiddlerCrabFans.csv")
 
+crabs <- crabs %>%
+  slice(-85)
+
 #We need to see if the data is normal and meets the assumptions
 ggplot(crabs, aes(x = crabType, y = bodyTemperature))+
   geom_boxplot() +
@@ -100,8 +103,7 @@ summ_crabs <- crabs %>%
 
 ratio <-(max(summ_crabs$sd_bodytemp))/(min(summ_crabs$sd_bodytemp))
 
+#the ratio is less than 3, but the data does not meet all of the assumptions 
+#with that I will use a welch's ANOVA? because of the variance of each group
 
-
-
-
-
+oneway.test(bodyTemperature ~ crabType, data = crabs)
