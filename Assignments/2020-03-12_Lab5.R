@@ -97,7 +97,7 @@ t.test(elgar$HORIZDIM, elgar$HORIZLIG,
 #two-sided, paired; t=2.1482; df=16; p=0.04735
 
 
-
+### 10/10 code runs without breaking ####
 
 
 
