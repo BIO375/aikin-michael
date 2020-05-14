@@ -16,7 +16,7 @@ insulation <- read_csv("datasets/demos/insulation.csv")
 #H0: mu1-mu2=0
 # I think that an two-sided t.test is the best test to use, so I will see if the data meets the assumptions
 
-ggplot(insulation, aes(x = leanness, y = heat_loss))+
+ggplot(insulation, aes(group = leanness, y = heat_loss))+
   geom_boxplot() +
   theme_bw() +
   coord_flip()
